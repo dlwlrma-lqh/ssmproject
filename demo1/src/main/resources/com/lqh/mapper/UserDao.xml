@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lqh.mapper.UserDao">
+    <select id="getOne" parameterType="integer" resultType="com.lqh.pojo.Users">
+        select * from users where id=#{uid}
+    </select>
+    <insert id="addOne" parameterType="com.lqh.pojo.Users">
+        insert into Users values (null,#{age},#{uname},#{psd},now(),#{money})
+    </insert>
+    <update id="updateOne" parameterType="com.lqh.pojo.Users">
+         update users set cdate=now()  where id = #{id}
+    </update>
+    <delete id="deleteOne" parameterType="com.lqh.pojo.Users">
+          delete from users where id = #{id}
+    </delete>
+    <!--查询多条数据-->
+    <select id="getList" resultType="com.lqh.pojo.Users">
+        select * from users
+    </select>
+</mapper>
